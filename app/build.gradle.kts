@@ -32,12 +32,32 @@ android {
 }
 
 dependencies {
+    implementation(fileTree(mapOf("dir" to "libs", "include" to listOf("*.jar"))))
+    implementation(libs.appcompat.v161)
+    implementation(libs.constraintlayout.v214)
+    implementation(libs.material.v190)
 
-    implementation(libs.appcompat)
-    implementation(libs.material)
-    implementation(libs.activity)
-    implementation(libs.constraintlayout)
+    // ViewModel and LiveData
+    implementation(libs.lifecycle.extensions)
+
+    // Room database
+    implementation(libs.room.runtime)
+    annotationProcessor(libs.room.compiler)
+
+    // Retrofit for API calls
+    implementation(libs.retrofit)
+    implementation(libs.converter.gson)
+
+    // Google Maps
+    implementation(libs.play.services.maps)
+
+    // Charts
+    implementation(libs.mpandroidchart)
+
+    // WorkManager for periodic sync
+    implementation(libs.work.runtime)
+
     testImplementation(libs.junit)
-    androidTestImplementation(libs.ext.junit)
-    androidTestImplementation(libs.espresso.core)
+    androidTestImplementation(libs.junit.v115)
+    androidTestImplementation(libs.espresso.core.v351)
 }
